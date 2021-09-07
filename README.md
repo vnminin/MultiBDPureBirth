@@ -1,7 +1,7 @@
-MultiBD
+MultiBDPureBirth
 ======
 
-`MultiBD` is an `R` package for direct likelihood-based inference of multivariate birth-death processes. 
+`MultiBDPureBirth` is a slight extention of the `MultiBD`  `R` package for direct likelihood-based inference of multivariate birth-death processes. 
 
 ## Installation
 
@@ -10,15 +10,15 @@ MultiBD
 install.packages(c("Rcpp", "RcppParallel", "BH", "devtools"))
 ```
 
-2. Install `MultiBD` from `github` (until package becomes available via `CRAN`):
+2. Install `MultiBDPureBirth` from `github` (until package becomes available via `CRAN`):
 ```{r}
-devtools::install_github("msuchard/MultiBD")
+devtools::install_github("msuchard/MultiBDPureBirth")
 ```
 
 ## Short example
 
 ```{r}
-library(MultiBD)
+library(MultiBDPureBirth)
 data(Eyam)
 
 loglik_sir <- function(param, data) {
@@ -49,22 +49,9 @@ loglik_sir(log(c(3.204, 0.019)), Eyam) # Evaluate at mode
 ```
 
 
-## Vignettes
-
-1. [Simple MCMC under SIR](https://github.com/msuchard/MultiBD/blob/master/inst/doc/SIR-MCMC.pdf)
-2. [SIR model and proposed branching approximation](https://github.com/msuchard/MultiBD/blob/master/inst/doc/SIRtrans.pdf)
-
 ## License
-`MultiBD` is licensed under Apache License 2.0
+`MultiBDPureBirth` is licensed under Apache License 2.0
 
-## Development status
-
-[![Build Status](https://travis-ci.org/msuchard/MultiBD.svg?branch=master)](https://travis-ci.org/msuchard/MultiBD)
-
-Beta
-
-## Acknowledgements
-- This project is supported in part through the National Science Foundation grant DMS 1264153 and National Institutes of Health grant R01 AI107034.
 
 ## References
 

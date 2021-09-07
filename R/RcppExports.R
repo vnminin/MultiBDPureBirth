@@ -5,6 +5,10 @@ SIR_Cpp <- function(t, alpha, beta, S0, I0, Ap1, Bp1, direction, nblocks, tol, c
     .Call('_MultiBDPureBirth_SIR_Cpp', PACKAGE = 'MultiBDPureBirth', t, alpha, beta, S0, I0, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads)
 }
 
+SIR_pure_birth_Cpp <- function(t, alpha, beta, S0, I0, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads) {
+    .Call('_MultiBDPureBirth_SIR_pure_birth_Cpp', PACKAGE = 'MultiBDPureBirth', t, alpha, beta, S0, I0, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads)
+}
+
 bb_lt_invert_Cpp <- function(t, lambda1, lambda2, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads) {
     .Call('_MultiBDPureBirth_bb_lt_invert_Cpp', PACKAGE = 'MultiBDPureBirth', t, lambda1, lambda2, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads)
 }

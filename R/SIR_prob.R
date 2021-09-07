@@ -76,3 +76,33 @@ SIR_prob <- function(t, alpha, beta, S0, I0, nSI, nIR, direction = c("Forward","
   
   return(abs(res))
 }
+
+SIR_pure_birth_prob <- function(t, alpha, beta, S0, I0, nSI, nIR, direction = c("Forward","Backward"),
+                     nblocks = 20, tol = 1e-12, computeMode = 0, nThreads = 4) {
+  
+  direction <- match.arg(direction)  
+  dir = 0
+  if (direction == "Backward") dir = 1
+  
+  ################################
+  ### t is too small
+  ### set probability 1 at a0, b0
+  ################################
+  
+  if (t < tol) {
+    res = matrix(0, nrow = nSI + 1, ncol = nIR + 1)
+    res[1,1] = 1
+    rownames(res) = 0:nSI # Infection events
+    colnames(res) = 0:nIR # Removal events
+    return(res)
+  }
+  
+  res = matrix(SIR_pure_birth_Cpp(t, alpha, beta, S0, I0, nSI + 1, nIR + 1, dir, nblocks, tol, computeMode, nThreads),
+               nrow = nSI + 1, byrow = T)
+  
+  rownames(res) = 0:nSI # Infection events
+  colnames(res) = 0:nIR # Removal events
+  
+  return(abs(res))
+}
+

@@ -32,6 +32,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// SIR_pure_birth_Cpp
+std::vector<double> SIR_pure_birth_Cpp(const double t, const double alpha, const double beta, const long int S0, const long int I0, const int Ap1, const int Bp1, const int direction, const int nblocks, const double tol, const int computeMode, const int nThreads);
+RcppExport SEXP _MultiBDPureBirth_SIR_pure_birth_Cpp(SEXP tSEXP, SEXP alphaSEXP, SEXP betaSEXP, SEXP S0SEXP, SEXP I0SEXP, SEXP Ap1SEXP, SEXP Bp1SEXP, SEXP directionSEXP, SEXP nblocksSEXP, SEXP tolSEXP, SEXP computeModeSEXP, SEXP nThreadsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const double >::type t(tSEXP);
+    Rcpp::traits::input_parameter< const double >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< const double >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< const long int >::type S0(S0SEXP);
+    Rcpp::traits::input_parameter< const long int >::type I0(I0SEXP);
+    Rcpp::traits::input_parameter< const int >::type Ap1(Ap1SEXP);
+    Rcpp::traits::input_parameter< const int >::type Bp1(Bp1SEXP);
+    Rcpp::traits::input_parameter< const int >::type direction(directionSEXP);
+    Rcpp::traits::input_parameter< const int >::type nblocks(nblocksSEXP);
+    Rcpp::traits::input_parameter< const double >::type tol(tolSEXP);
+    Rcpp::traits::input_parameter< const int >::type computeMode(computeModeSEXP);
+    Rcpp::traits::input_parameter< const int >::type nThreads(nThreadsSEXP);
+    rcpp_result_gen = Rcpp::wrap(SIR_pure_birth_Cpp(t, alpha, beta, S0, I0, Ap1, Bp1, direction, nblocks, tol, computeMode, nThreads));
+    return rcpp_result_gen;
+END_RCPP
+}
 // bb_lt_invert_Cpp
 std::vector<double> bb_lt_invert_Cpp(double t, const std::vector<double>& lambda1, const std::vector<double>& lambda2, const int Ap1, const int Bp1, const int direction, const int nblocks, const double tol, const int computeMode, const int nThreads);
 RcppExport SEXP _MultiBDPureBirth_bb_lt_invert_Cpp(SEXP tSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP Ap1SEXP, SEXP Bp1SEXP, SEXP directionSEXP, SEXP nblocksSEXP, SEXP tolSEXP, SEXP computeModeSEXP, SEXP nThreadsSEXP) {
@@ -81,6 +103,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_MultiBDPureBirth_SIR_Cpp", (DL_FUNC) &_MultiBDPureBirth_SIR_Cpp, 12},
+    {"_MultiBDPureBirth_SIR_pure_birth_Cpp", (DL_FUNC) &_MultiBDPureBirth_SIR_pure_birth_Cpp, 12},
     {"_MultiBDPureBirth_bb_lt_invert_Cpp", (DL_FUNC) &_MultiBDPureBirth_bb_lt_invert_Cpp, 10},
     {"_MultiBDPureBirth_bbd_lt_invert_Cpp", (DL_FUNC) &_MultiBDPureBirth_bbd_lt_invert_Cpp, 16},
     {NULL, NULL, 0}
